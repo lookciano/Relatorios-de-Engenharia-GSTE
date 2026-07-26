@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Engenharia GSTE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 { color: #2c3e50; margin-bottom: 1.5rem; }
+        .links { display: grid; gap: 1rem; }
+        .card {
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #34495e;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+        .card h2 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #2980b9; }
+        .card p { font-size: 0.9rem; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Relatórios de Engenharia GSTE</h1>
+        <div class="links">
+            <a href="Fornecimento-SubestacoesGrandeSertao.html" class="card">
+                <h2>Dashboard de Status de Subestações</h2>
+                <p>Acompanhamento de fornecimento e status geral das subestações.</p>
+            </a>
+            <a href="DashboardConstrutivo-SubestacoesGrandeSertao.html" class="card">
+                <h2>Dashboard Construtivo</h2>
+                <p>Relatório detalhado do progresso das obras e construção.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
