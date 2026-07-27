@@ -1,17 +1,15 @@
 {
   "name": "relatorios-engenharia-gste",
-  "version": "1.0.0",
-  "description": "Relatórios de Engenharia GSTE - Dashboards de Fornecimento e Construtivo",
-  "packageManager": "pnpm@9.15.4",
+  "version": "2.0.0",
+  "description": "App Web GSTE - Dashboards de Fornecimento e Construtivo com TiDB",
+  "main": "server.js",
   "scripts": {
-    "start": "serve -s . -l $PORT",
-    "build": "",
-    "postinstall": "npx -y serve --version || true"
+    "start": "node server.js",
+    "build": ""
   },
   "dependencies": {
-    "serve": "^14.2.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": []
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.0"
   }
 }
