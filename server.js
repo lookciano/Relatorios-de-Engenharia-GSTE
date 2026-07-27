@@ -52,7 +52,9 @@ async function syncFornecimentoToRelational(stateJson) {
         const projId = projMap[projKey.toLowerCase()];
         if (!projId) continue;
 
-        const equipmentArray = projVal.equipment || [];
+        // Note: the clients save either { gs1: { equipment: [...] } } or { gs1: [...] } directly depending on the save method.
+        // Let's support both structures gracefully!
+        const equipmentArray = Array.isArray(projVal) ? projVal : (projVal.equipment || []);
         for (const eq of equipmentArray) {
           const eqId = eqMap[eq.name.toLowerCase()];
           if (!eqId) continue;
@@ -167,9 +169,46 @@ app.get('/sync/fornecimento', async (req, res) => {
 // POST /sync/fornecimento - salva dados e sincroniza no TiDB Cloud em tempo real
 app.post('/sync/fornecimento', async (req, res) => {
   try {
-    const stateJson = JSON.stringify(req.body);
+    // 1. Carrega o estado mestre atual do DB para fazer merge robusto
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "fornecimento"');
+    let masterState = {};
+    if (rows.length > 0) {
+      try {
+        masterState = JSON.parse(rows[0].state_json);
+      } catch (err) {
+        masterState = {};
+      }
+    }
+
+    const clientData = req.body;
     
-    // 1. Atualiza na tabela sync_states
+    // Faz o merge inteligente: se o cliente enviou uma lista direta do projeto ou um objeto com .equipment,
+    // nós normalizamos para que o DB sempre mantenha a estrutura MASTER rica { gs1: { suppliers: [...], equipment: [...] } }
+    for (const [projKey, projVal] of Object.entries(clientData)) {
+      if (!masterState[projKey]) {
+        masterState[projKey] = {
+          suppliers: [],
+          mainBodyId: projKey + 'MainBody',
+          auxBodyId: projKey + 'AuxBody',
+          equipment: []
+        };
+      }
+      
+      if (Array.isArray(projVal)) {
+        masterState[projKey].equipment = projVal;
+      } else if (projVal && typeof projVal === 'object') {
+        if (projVal.equipment) {
+          masterState[projKey].equipment = projVal.equipment;
+        }
+        if (projVal.suppliers) masterState[projKey].suppliers = projVal.suppliers;
+        if (projVal.mainBodyId) masterState[projKey].mainBodyId = projVal.mainBodyId;
+        if (projVal.auxBodyId) masterState[projKey].auxBodyId = projVal.auxBodyId;
+      }
+    }
+
+    const stateJson = JSON.stringify(masterState);
+    
+    // Atualiza na tabela sync_states
     await pool.query(
       'INSERT INTO sync_states (key_name, state_json) VALUES ("fornecimento", ?) ON DUPLICATE KEY UPDATE state_json = ?',
       [stateJson, stateJson]
