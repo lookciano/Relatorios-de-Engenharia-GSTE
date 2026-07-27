@@ -890,11 +890,11 @@
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Reatores",
-      "fornecedor": "Ourolândia",
+      "fornecedor": null,
       "quantidade": 7,
       "status": "Entregue parcial",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
+      "data_prevista": null,
+      "observacao": "Teste sincronizacao"
     },
     {
       "id": 71,
@@ -935,5 +935,5 @@
       "Em transporte": 3
     }
   },
-  "exportado_em": "2026-07-26 21:04:26"
+  "exportado_em": "2026-07-27 16:36:36"
 }
