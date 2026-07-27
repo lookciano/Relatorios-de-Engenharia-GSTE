@@ -1,0 +1,40 @@
+name: Export Data from TiDB
+on:
+  schedule:
+    # A cada hora
+    - cron: '0 * * * *'
+  workflow_dispatch:  # Execução manual
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install deps
+        run: pip install pymysql
+      
+      - name: Export data
+        env:
+          TIDB_HOST: ${{ secrets.TIDB_HOST }}
+          TIDB_PORT: ${{ secrets.TIDB_PORT }}
+          TIDB_USER: ${{ secrets.TIDB_USER }}
+          TIDB_PASSWORD: ${{ secrets.TIDB_PASSWORD }}
+          TIDB_DATABASE: ${{ secrets.TIDB_DATABASE }}
+        run: |
+          python export_data.py
+      
+      - name: Commit & Push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Auto-export data from TiDB [$(date +'%Y-%m-%d %H:%M')]" && git push)
