@@ -23,6 +23,14 @@
       "descricao": "Grande Sertão Fase 3",
       "created_at": "2026-07-26T23:59:36",
       "updated_at": "2026-07-26T23:59:36"
+    },
+    {
+      "id": 4,
+      "nome": "Projeto TAESA",
+      "codigo": "TAESA",
+      "descricao": "Taesa portion of Grande Sertão II",
+      "created_at": "2026-07-27T21:52:36",
+      "updated_at": "2026-07-27T21:52:36"
     }
   ],
   "equipamentos": [
@@ -127,7 +135,7 @@
   ],
   "fornecimento": [
     {
-      "id": 6,
+      "id": 30006,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Disjuntores",
@@ -138,29 +146,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 7,
+      "id": 30010,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Disjuntores",
-      "fornecedor": "João Pessoa",
-      "quantidade": 3,
-      "status": "Entregue",
-      "data_prevista": "Maio/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 8,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Disjuntores",
-      "fornecedor": "Pau Ferro",
+      "fornecedor": "Garanhuns",
       "quantidade": 2,
       "status": "Entregue",
-      "data_prevista": "Maio/26",
+      "data_prevista": "Junho/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 9,
+      "id": 30009,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Disjuntores",
@@ -171,40 +168,29 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 10,
+      "id": 30008,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Disjuntores",
-      "fornecedor": "Garanhuns",
+      "fornecedor": "Pau Ferro",
       "quantidade": 2,
       "status": "Entregue",
-      "data_prevista": "Junho/26",
+      "data_prevista": "Maio/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 11,
+      "id": 30007,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
-      "equipamento": "Chaves Seccionadoras",
-      "fornecedor": "Ceará Mirim",
-      "quantidade": 8,
-      "status": "Entregue",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 12,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Chaves Seccionadoras",
+      "equipamento": "Disjuntores",
       "fornecedor": "João Pessoa",
-      "quantidade": 8,
+      "quantidade": 3,
       "status": "Entregue",
-      "data_prevista": "Junho/26",
+      "data_prevista": "Maio/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 13,
+      "id": 30013,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Chaves Seccionadoras",
@@ -215,18 +201,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 14,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Chaves Seccionadoras",
-      "fornecedor": "Messias",
-      "quantidade": 5,
-      "status": "Em fabricação",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 15,
+      "id": 30015,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Chaves Seccionadoras",
@@ -237,7 +212,51 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 16,
+      "id": 30014,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Messias",
+      "quantidade": 5,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30012,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "João Pessoa",
+      "quantidade": 2,
+      "status": "Entregue parcial",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30011,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 8,
+      "status": "Entregue",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30020,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Garanhuns",
+      "quantidade": 9,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30016,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "TPs e TCs",
@@ -248,18 +267,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 17,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "TPs e TCs",
-      "fornecedor": "João Pessoa",
-      "quantidade": 15,
-      "status": "Entregue",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 18,
+      "id": 30018,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "TPs e TCs",
@@ -270,7 +278,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 19,
+      "id": 30017,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "João Pessoa",
+      "quantidade": 15,
+      "status": "Entregue",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30019,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "TPs e TCs",
@@ -281,18 +300,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 20,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "TPs e TCs",
-      "fornecedor": "Garanhuns",
-      "quantidade": 9,
-      "status": "Em fabricação",
-      "data_prevista": "Ago/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 21,
+      "id": 30021,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Para raios",
@@ -303,7 +311,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 22,
+      "id": 30022,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Para raios",
@@ -314,7 +322,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 23,
+      "id": 30023,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Para raios",
@@ -325,7 +333,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 24,
+      "id": 30024,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Para raios",
@@ -336,7 +344,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 25,
+      "id": 30025,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Para raios",
@@ -347,29 +355,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 1,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Reatores a seco",
-      "fornecedor": "Ceará Mirim",
-      "quantidade": 4,
-      "status": "Entregue",
-      "data_prevista": "Maio/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 2,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Reatores a seco",
-      "fornecedor": "João Pessoa",
-      "quantidade": 4,
-      "status": "Entregue",
-      "data_prevista": "Maio/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 3,
+      "id": 30003,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Reatores a seco",
@@ -380,18 +366,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 4,
-      "projeto": "Projeto Grande Sertão 1",
-      "codigo": "GS1",
-      "equipamento": "Reatores a seco",
-      "fornecedor": "Messias",
-      "quantidade": 4,
-      "status": "Entregue",
-      "data_prevista": "Maio/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 5,
+      "id": 30005,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Reatores a seco",
@@ -402,18 +377,271 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 26,
+      "id": 30004,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
-      "equipamento": "Painéis de SPCS/Telecom",
-      "fornecedor": "Ceará Mirim",
-      "quantidade": 0,
-      "status": "TAF Concluído",
-      "data_prevista": "Julho/26",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "Messias",
+      "quantidade": 4,
+      "status": "Entregue",
+      "data_prevista": "Maio/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 27,
+      "id": 30002,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "João Pessoa",
+      "quantidade": 4,
+      "status": "Entregue",
+      "data_prevista": "Maio/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30001,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 4,
+      "status": "Entregue",
+      "data_prevista": "Maio/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30045,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TSA",
+      "fornecedor": "Garanhuns",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30044,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TSA",
+      "fornecedor": "Messias",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30042,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TSA",
+      "fornecedor": "João Pessoa",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30043,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TSA",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30041,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "TSA",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30031,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 4,
+      "status": "TAF Convocado",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30032,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "João Pessoa",
+      "quantidade": 4,
+      "status": "TAF Convocado",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30033,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 4,
+      "status": "TAF Convocado",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30034,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Messias",
+      "quantidade": 4,
+      "status": "TAF Convocado",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30035,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Garanhuns",
+      "quantidade": 4,
+      "status": "TAF Convocado",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30053,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Cubículo",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30051,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Cubículo",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30052,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Cubículo",
+      "fornecedor": "João Pessoa",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30054,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Cubículo",
+      "fornecedor": "Messias",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30055,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Cubículo",
+      "fornecedor": "Garanhuns",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30059,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Messias",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30060,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Garanhuns",
+      "quantidade": 6,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30058,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 6,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30057,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "João Pessoa",
+      "quantidade": 7,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30056,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 7,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30030,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Garanhuns",
+      "quantidade": 0,
+      "status": "TAF em andamento",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30027,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -424,7 +652,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 28,
+      "id": 30026,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 0,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30028,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -435,7 +674,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 29,
+      "id": 30029,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -446,29 +685,117 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 30,
+      "id": 30046,
       "projeto": "Projeto Grande Sertão 1",
       "codigo": "GS1",
-      "equipamento": "Painéis de SPCS/Telecom",
-      "fornecedor": "Garanhuns",
-      "quantidade": 0,
-      "status": "TAF em andamento",
-      "data_prevista": "Setembro/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 37,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Disjuntores",
-      "fornecedor": "São João do Paraíso",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Ceará Mirim",
       "quantidade": 4,
-      "status": "Entregue parcial",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 36,
+      "id": 30050,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Garanhuns",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30049,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Messias",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30048,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30047,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "João Pessoa",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30036,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Ceará Mirim",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30037,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "João Pessoa",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30040,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Garanhuns",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30038,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Pau Ferro",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30039,
+      "projeto": "Projeto Grande Sertão 1",
+      "codigo": "GS1",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Messias",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30066,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Disjuntores",
@@ -479,7 +806,40 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 40,
+      "id": 30067,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Disjuntores",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 4,
+      "status": "Entregue parcial",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30068,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Disjuntores",
+      "fornecedor": "Ibicoara",
+      "quantidade": 1,
+      "status": "TAF Concluído",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30069,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Disjuntores",
+      "fornecedor": "Capelinha",
+      "quantidade": 2,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30070,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Disjuntores",
@@ -490,95 +850,106 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 39,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Disjuntores",
-      "fornecedor": "Capelinha",
-      "quantidade": 2,
-      "status": "TAF Concluído",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 38,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Disjuntores",
-      "fornecedor": "Ibicoara",
-      "quantidade": 1,
-      "status": "TAF Concluído",
-      "data_prevista": "Agosto/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 41,
+      "id": 30071,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Chaves Seccionadoras",
       "fornecedor": "Jussiape",
-      "quantidade": 6,
-      "status": "Entregue parcial",
-      "data_prevista": "Agosto/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 42,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Chaves Seccionadoras",
-      "fornecedor": "São João do Paraíso",
-      "quantidade": 17,
-      "status": "Entregue parcial",
-      "data_prevista": "Agosto/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 43,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Chaves Seccionadoras",
-      "fornecedor": "Ibicoara",
-      "quantidade": 2,
+      "quantidade": 26,
       "status": "Em fabricação",
       "data_prevista": "Agosto/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 44,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Chaves Seccionadoras",
-      "fornecedor": "Capelinha",
-      "quantidade": 18,
-      "status": "Em fabricação",
-      "data_prevista": "Outubro/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 45,
+      "id": 30075,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Chaves Seccionadoras",
       "fornecedor": "Itabira",
       "quantidade": 4,
       "status": "Em fabricação",
-      "data_prevista": "Outubro/26",
+      "data_prevista": "Setembro/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 47,
+      "id": 30074,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Capelinha",
+      "quantidade": 18,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30073,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Ibicoara",
+      "quantidade": 2,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30072,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 32,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30076,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "TPs e TCs",
-      "fornecedor": "São João do Paraíso",
-      "quantidade": 14,
+      "fornecedor": "Jussiape",
+      "quantidade": 12,
       "status": "Entregue parcial",
       "data_prevista": "Julho/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 48,
+      "id": 30077,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 9,
+      "status": "Entregue parcial",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30080,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Itabira",
+      "quantidade": 6,
+      "status": "TAF Concluído",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30079,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Capelinha",
+      "quantidade": 16,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30078,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "TPs e TCs",
@@ -589,73 +960,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 49,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "TPs e TCs",
-      "fornecedor": "Capelinha",
-      "quantidade": 18,
-      "status": "TAF Concluído",
-      "data_prevista": "Agosto/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 50,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "TPs e TCs",
-      "fornecedor": "Itabira",
-      "quantidade": 6,
-      "status": "TAF Concluído",
-      "data_prevista": "Setembro/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 46,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "TPs e TCs",
-      "fornecedor": "Jussiape",
-      "quantidade": 23,
-      "status": "Entregue parcial",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 52,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Para raios",
-      "fornecedor": "São João do Paraíso",
-      "quantidade": 33,
-      "status": "Em fabricação",
-      "data_prevista": "Setembro/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 51,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Para raios",
-      "fornecedor": "Jussiape",
-      "quantidade": 19,
-      "status": "Em fabricação",
-      "data_prevista": "Setembro/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 53,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Para raios",
-      "fornecedor": "Ibicoara",
-      "quantidade": 0,
-      "status": "N/AN/A",
-      "data_prevista": "",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 54,
+      "id": 30084,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Para raios",
@@ -666,7 +971,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 55,
+      "id": 30081,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Para raios",
+      "fornecedor": "Jussiape",
+      "quantidade": 30,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30085,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Para raios",
@@ -677,7 +993,62 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 31,
+      "id": 30083,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Para raios",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30082,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Para raios",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 33,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30065,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "Itabira",
+      "quantidade": 4,
+      "status": "Em transporte",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30062,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 4,
+      "status": "Em transporte",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30064,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Reatores a seco",
+      "fornecedor": "Capelinha",
+      "quantidade": 4,
+      "status": "Em transporte",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30061,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Reatores a seco",
@@ -688,84 +1059,238 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 35,
+      "id": 30063,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Reatores a seco",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30105,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "TSA",
       "fornecedor": "Itabira",
-      "quantidade": 4,
-      "status": "Em transporte",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 34,
+      "id": 30104,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
-      "equipamento": "Reatores a seco",
+      "equipamento": "TSA",
       "fornecedor": "Capelinha",
-      "quantidade": 4,
-      "status": "Em transporte",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 33,
+      "id": 30103,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
-      "equipamento": "Reatores a seco",
+      "equipamento": "TSA",
       "fornecedor": "Ibicoara",
       "quantidade": 0,
-      "status": "N/AN/A",
-      "data_prevista": "",
-      "observacao": "Equipamentos Principais"
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 32,
+      "id": 30102,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
-      "equipamento": "Reatores a seco",
+      "equipamento": "TSA",
       "fornecedor": "São João do Paraíso",
-      "quantidade": 4,
-      "status": "Em transporte",
-      "data_prevista": "Junho/26",
-      "observacao": "Equipamentos Principais"
+      "quantidade": 1,
+      "status": "Em análise",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 59,
+      "id": 30101,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
-      "equipamento": "Painéis de SPCS/Telecom",
-      "fornecedor": "Capelinha",
-      "quantidade": 0,
-      "status": "TAF Concluído",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 58,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Painéis de SPCS/Telecom",
-      "fornecedor": "Ibicoara",
-      "quantidade": 0,
-      "status": "Em fabricação",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
-    },
-    {
-      "id": 56,
-      "projeto": "Projeto Grande Sertão 2",
-      "codigo": "GS2",
-      "equipamento": "Painéis de SPCS/Telecom",
+      "equipamento": "TSA",
       "fornecedor": "Jussiape",
       "quantidade": 0,
-      "status": "TAF Concluído",
-      "data_prevista": "Julho/26",
-      "observacao": "Equipamentos Principais"
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 60,
+      "id": 30092,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30091,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30093,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30094,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Capelinha",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30095,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Itabira",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30111,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Cubículo",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30115,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Cubículo",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30114,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Cubículo",
+      "fornecedor": "Capelinha",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30113,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Cubículo",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30112,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Cubículo",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30120,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Itabira",
+      "quantidade": 5,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30119,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Capelinha",
+      "quantidade": 18,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30118,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Ibicoara",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30117,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 30,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30116,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Jussiape",
+      "quantidade": 24,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30090,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -776,7 +1301,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 57,
+      "id": 30086,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30087,
       "projeto": "Projeto Grande Sertão 2",
       "codigo": "GS2",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -787,18 +1323,139 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 63,
-      "projeto": "Projeto Grande Sertão 3",
-      "codigo": "GS3",
-      "equipamento": "Disjuntores",
-      "fornecedor": "Ourolândia",
-      "quantidade": 6,
-      "status": "Entregue",
-      "data_prevista": "Abril/26",
+      "id": 30088,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "Em fabricação",
+      "data_prevista": "Julho/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 64,
+      "id": 30089,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Capelinha",
+      "quantidade": 0,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30107,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30108,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30109,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Capelinha",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30110,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Itabira",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30106,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Set/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30099,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Capelinha",
+      "quantidade": 1,
+      "status": "Em aprovação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30100,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Itabira",
+      "quantidade": 1,
+      "status": "Em análise",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30098,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30097,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "São João do Paraíso",
+      "quantidade": 1,
+      "status": "Em análise",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30096,
+      "projeto": "Projeto Grande Sertão 2",
+      "codigo": "GS2",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30160,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Disjuntores",
@@ -809,18 +1466,18 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 65,
+      "id": 30159,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
-      "equipamento": "Chaves Seccionadoras",
+      "equipamento": "Disjuntores",
       "fornecedor": "Ourolândia",
-      "quantidade": 18,
+      "quantidade": 6,
       "status": "Entregue",
       "data_prevista": "Abril/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 66,
+      "id": 30162,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Chaves Seccionadoras",
@@ -831,40 +1488,40 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 67,
+      "id": 30161,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
-      "equipamento": "TPs e TCs",
+      "equipamento": "Chaves Seccionadoras",
       "fornecedor": "Ourolândia",
       "quantidade": 18,
-      "status": "Entregue parcial",
-      "data_prevista": "Julho/26",
+      "status": "Entregue",
+      "data_prevista": "Abril/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 68,
+      "id": 30164,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "TPs e TCs",
       "fornecedor": "Jussiape",
-      "quantidade": 13,
+      "quantidade": 6,
       "status": "Entregue parcial",
       "data_prevista": "Junho/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 69,
+      "id": 30163,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
-      "equipamento": "Para raios",
+      "equipamento": "TPs e TCs",
       "fornecedor": "Ourolândia",
-      "quantidade": 14,
+      "quantidade": 5,
       "status": "Entregue parcial",
-      "data_prevista": "Setembro/26",
+      "data_prevista": "Julho/26",
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 70,
+      "id": 30166,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Para raios",
@@ -875,7 +1532,29 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 62,
+      "id": 30165,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Para raios",
+      "fornecedor": "Ourolândia",
+      "quantidade": 16,
+      "status": "Entregue parcial",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30157,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Reatores",
+      "fornecedor": "Ourolândia",
+      "quantidade": 7,
+      "status": "Entregue parcial",
+      "data_prevista": "Junho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30158,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Reatores",
@@ -886,18 +1565,95 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 61,
+      "id": 30173,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
-      "equipamento": "Reatores",
-      "fornecedor": null,
-      "quantidade": 7,
-      "status": "Entregue parcial",
-      "data_prevista": null,
-      "observacao": "Teste sincronizacao"
+      "equipamento": "TSA",
+      "fornecedor": "Ourolândia",
+      "quantidade": 1,
+      "status": "Elaboração",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
     },
     {
-      "id": 71,
+      "id": 30174,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "TSA",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30170,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30169,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Ourolândia",
+      "quantidade": 4,
+      "status": "TAF Concluído",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30177,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Cubículo",
+      "fornecedor": "Ourolândia",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30178,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Cubículo",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30180,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Jussiape",
+      "quantidade": 5,
+      "status": "Elaboração",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30179,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Ourolândia",
+      "quantidade": 18,
+      "status": "Elaboração",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30167,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -908,7 +1664,7 @@
       "observacao": "Equipamentos Principais"
     },
     {
-      "id": 72,
+      "id": 30168,
       "projeto": "Projeto Grande Sertão 3",
       "codigo": "GS3",
       "equipamento": "Painéis de SPCS/Telecom",
@@ -917,23 +1673,467 @@
       "status": "TAF em andamento",
       "data_prevista": "Julho/26",
       "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30176,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30175,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Ourolândia",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30171,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Ourolândia",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30172,
+      "projeto": "Projeto Grande Sertão 3",
+      "codigo": "GS3",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30126,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Disjuntores",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30125,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Disjuntores",
+      "fornecedor": "Ibicoara",
+      "quantidade": 1,
+      "status": "Em estoque",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30124,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Disjuntores",
+      "fornecedor": "Jussiape",
+      "quantidade": 2,
+      "status": "Entregue",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30129,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30128,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Ibicoara",
+      "quantidade": 2,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30127,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Chaves Seccionadoras",
+      "fornecedor": "Jussiape",
+      "quantidade": 9,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30130,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Jussiape",
+      "quantidade": 6,
+      "status": "Entregue parcial",
+      "data_prevista": "Julho/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30131,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Ibicoara",
+      "quantidade": 3,
+      "status": "Entregue",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30132,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TPs e TCs",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30135,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Para raios",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "Em estoque",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30133,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Para raios",
+      "fornecedor": "Jussiape",
+      "quantidade": 14,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30134,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Para raios",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30121,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Reatores a Óleo",
+      "fornecedor": "Jussiape",
+      "quantidade": 1,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30122,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Reatores a Óleo",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30123,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Reatores a Óleo",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30146,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TSA",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30145,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TSA",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30147,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "TSA",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30139,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30140,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30141,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "QDCA/QDCC",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30152,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Cubículo",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30151,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Cubículo",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30153,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Cubículo",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30154,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30156,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30155,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Caixa de Junção",
+      "fornecedor": "Ibicoara",
+      "quantidade": 4,
+      "status": "Em análise",
+      "data_prevista": "Ago/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30138,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Igaporã",
+      "quantidade": 0,
+      "status": "Em fabricação",
+      "data_prevista": "Agosto/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30137,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30136,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Painéis de SPCS/Telecom",
+      "fornecedor": "Jussiape",
+      "quantidade": 0,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Principais"
+    },
+    {
+      "id": 30150,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30149,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30148,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Retificador e Baterias",
+      "fornecedor": "Jussiape",
+      "quantidade": 4,
+      "status": "Em fabricação",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30144,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Itabira",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30143,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Ibicoara",
+      "quantidade": 0,
+      "status": "N/A",
+      "data_prevista": "N/A",
+      "observacao": "Equipamentos Auxiliares"
+    },
+    {
+      "id": 30142,
+      "projeto": "Projeto TAESA",
+      "codigo": "TAESA",
+      "equipamento": "Grupo Motor Gerador",
+      "fornecedor": "Jussiape",
+      "quantidade": 2,
+      "status": "Em análise",
+      "data_prevista": "Setembro/26",
+      "observacao": "Equipamentos Auxiliares"
     }
   ],
   "progresso": [],
   "stats": {
-    "total_projetos": 3,
+    "total_projetos": 4,
     "total_equipamentos": 14,
-    "total_registros": 72,
+    "total_registros": 180,
     "status_count": {
-      "Entregue": 22,
-      "Em estoque": 2,
-      "Em fabricação": 15,
-      "TAF Concluído": 12,
-      "TAF em andamento": 4,
+      "Entregue": 23,
+      "Em estoque": 4,
+      "Em fabricação": 61,
       "Entregue parcial": 12,
-      "N/AN/A": 2,
-      "Em transporte": 3
+      "Em aprovação": 6,
+      "N/A": 41,
+      "TAF Convocado": 5,
+      "TAF em andamento": 4,
+      "TAF Concluído": 13,
+      "Em transporte": 3,
+      "Em análise": 5,
+      "Elaboração": 3
     }
   },
-  "exportado_em": "2026-07-27 16:36:36"
+  "exportado_em": "2026-07-27 18:52:47"
 }
