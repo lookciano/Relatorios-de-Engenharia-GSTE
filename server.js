@@ -59,15 +59,26 @@ app.get('/api/fornecimento', async (req, res) => {
   }
 });
 
-// Atualizar registro
+// Atualizar registro (parcial — só altera os campos enviados)
 app.put('/api/fornecimento/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { fornecedor, quantidade, status, data_prevista, observacao } = req.body;
+    const allowed = ['fornecedor', 'quantidade', 'status', 'data_prevista', 'observacao'];
+    const fields = [];
+    const values = [];
+    for (const field of allowed) {
+      if (req.body[field] !== undefined) {
+        fields.push(`${field}=?`);
+        values.push(req.body[field]);
+      }
+    }
+    if (fields.length === 0) {
+      return res.status(400).json({ error: 'Nenhum campo para atualizar' });
+    }
+    values.push(id);
     await pool.query(
-      `UPDATE fornecimento SET fornecedor=?, quantidade=?, status=?, data_prevista=?, observacao=?
-       WHERE id=?`,
-      [fornecedor, quantidade, status, data_prevista, observacao, id]
+      `UPDATE fornecimento SET ${fields.join(', ')} WHERE id=?`,
+      values
     );
     const [rows] = await pool.query('SELECT * FROM fornecimento WHERE id=?', [id]);
     res.json(rows[0]);
@@ -95,15 +106,26 @@ app.get('/api/construtivo', async (req, res) => {
   }
 });
 
-// Atualizar progresso
+// Atualizar progresso (parcial)
 app.put('/api/construtivo/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { progresso, status, data_atualizacao, observacao } = req.body;
+    const allowed = ['progresso', 'status', 'data_atualizacao', 'observacao'];
+    const fields = [];
+    const values = [];
+    for (const field of allowed) {
+      if (req.body[field] !== undefined) {
+        fields.push(`${field}=?`);
+        values.push(req.body[field]);
+      }
+    }
+    if (fields.length === 0) {
+      return res.status(400).json({ error: 'Nenhum campo para atualizar' });
+    }
+    values.push(id);
     await pool.query(
-      `UPDATE progresso_construtivo SET progresso=?, status=?, data_atualizacao=?, observacao=?
-       WHERE id=?`,
-      [progresso, status, data_atualizacao, observacao, id]
+      `UPDATE progresso_construtivo SET ${fields.join(', ')} WHERE id=?`,
+      values
     );
     const [rows] = await pool.query('SELECT * FROM progresso_construtivo WHERE id=?', [id]);
     res.json(rows[0]);
