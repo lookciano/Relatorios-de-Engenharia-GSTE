@@ -794,7 +794,8 @@
 
     function loadSavedData() {
         // Tenta carregar do servidor primeiro
-        fetch('/sync/construtivo?_=' + Date.now())
+        const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+        fetch(API_BASE + '/sync/construtivo?_=' + Date.now())
             .then(r => r.json())
             .then(serverData => {
                 if (serverData && Object.keys(serverData).length > 0) {
@@ -833,7 +834,8 @@
     function saveData() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
         // Sincronizar com servidor
-        fetch('/sync/construtivo', {
+        const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+        fetch(API_BASE + '/sync/construtivo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(allData)
