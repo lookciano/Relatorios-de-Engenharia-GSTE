@@ -1,0 +1,12 @@
+{
+  "name": "relatorios-engenharia-gste",
+  "version": "1.0.0",
+  "description": "Relatórios de Engenharia GSTE - Dashboards de Fornecimento e Construtivo",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT",
+    "build": ""
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
