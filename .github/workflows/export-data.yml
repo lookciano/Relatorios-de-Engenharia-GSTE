@@ -1,5 +1,5 @@
 name: Export Data from TiDB
-on:
+'on':
   schedule:
     # A cada hora
     - cron: '0 * * * *'
