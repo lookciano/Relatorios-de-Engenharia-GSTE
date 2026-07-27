@@ -210,8 +210,8 @@ async function doLogin() {
 async function loadData() {
   try {
     const [forn, stats] = await Promise.all([
-      fetch('/api/fornecimento').then(r=>r.json()),
-      fetch('/api/stats').then(r=>r.json())
+      fetch('/api/fornecimento?_=' + Date.now()).then(r=>r.json()),
+      fetch('/api/stats?_=' + Date.now()).then(r=>r.json())
     ]);
     DATA = forn;
     document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-BR');
@@ -222,6 +222,13 @@ async function loadData() {
     document.getElementById('loading').innerHTML = `❌ Erro ao carregar: ${e.message}`;
   }
 }
+
+// Auto-refresh a cada 15 segundos para sincronizar dados entre usuarios
+setInterval(() => {
+  if (!EDIT_MODE && document.getElementById('content').style.display !== 'none') {
+    loadData();
+  }
+}, 15000);
 
 // ===== RENDER =====
 function render() {
