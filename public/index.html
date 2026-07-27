@@ -146,7 +146,7 @@
     <script>
         async function loadData() {
             try {
-                const resp = await fetch('/api/stats?_=' + Date.now());
+                const resp = await fetch('/api/stats');
                 if (!resp.ok) throw new Error('API offline');
                 const stats = await resp.json();
                 document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-BR');
