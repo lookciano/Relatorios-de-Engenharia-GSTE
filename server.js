@@ -8,7 +8,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const PUBLIC = path.join(__dirname);
 
+// Configuração robusta de CORS e Headers preventores de Cache
 app.use(cors());
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+});
 app.use(express.json({ limit: '50mb' }));
 
 // ===== Configuração do TiDB Cloud =====
