@@ -793,69 +793,51 @@
     const STORAGE_KEY = 'construtivo-dashboard-gs1-data';
 
     function loadSavedData() {
-        // Primeiro tenta carregar do servidor (data.json)
-        fetch('/data.json?_=' + Date.now())
+        // Tenta carregar do servidor primeiro
+        fetch('/sync/construtivo?_=' + Date.now())
             .then(r => r.json())
-            .then(data => {
-                // Mapeia dados de fornecimento para status de engenharia
-                if (data.fornecimento && data.fornecimento.length > 0) {
-                    const forn = data.fornecimento;
-                    Object.keys(allData).forEach(projKey => {
-                        const proj = allData[projKey];
-                        const projName = proj.title || '';
-                        // Filtra registros deste projeto
-                        const projData = forn.filter(f => f.projeto && f.projeto.includes(projName));
-                        if (projData.length > 0) {
-                            // Atualiza engenharia com status dos equipamentos
-                            proj.engenharia.forEach(item => {
-                                if (item.subItems) {
-                                    item.subItems.forEach(sub => {
-                                        proj.suppliers.forEach(sup => {
-                                            const found = projData.find(f => f.fornecedor === sup);
-                                            if (found && item.suppliers[sup]) {
-                                                if (sub === 'Projeto') item.suppliers[sup].sub1 = found.status;
-                                                if (sub === 'Entrega') item.suppliers[sup].sub2 = found.status;
-                                            }
-                                        });
-                                    });
-                                } else {
-                                    proj.suppliers.forEach(sup => {
-                                        const found = projData.find(f => f.fornecedor === sup);
-                                        if (found && item.suppliers[sup]) {
-                                            item.suppliers[sup].status = found.status;
-                                        }
-                                    });
-                                }
-                            });
-                            // Atualiza progresso com base na % de entregue
-                            const total = projData.length;
-                            const delivered = projData.filter(f => f.status === 'Entregue' || f.status === 'TAF Concluído').length;
-                            const pct = total > 0 ? Math.round((delivered / total) * 100) : 0;
-                            proj.progresso.forEach(p => {
-                                p.percentage = pct;
-                            });
+            .then(serverData => {
+                if (serverData && Object.keys(serverData).length > 0) {
+                    Object.keys(serverData).forEach(projKey => {
+                        if (allData[projKey]) {
+                            if (serverData[projKey].engenharia) allData[projKey].engenharia = serverData[projKey].engenharia;
+                            if (serverData[projKey].estruturas) allData[projKey].estruturas = serverData[projKey].estruturas;
+                            if (serverData[projKey].progresso) allData[projKey].progresso = serverData[projKey].progresso;
                         }
                     });
+                    renderAll();
+                    return;
                 }
-                renderAll();
-                // Tenta carregar localStorage por cima (dados locais têm prioridade)
-                const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-            try {
-                const parsed = JSON.parse(saved);
-                Object.keys(parsed).forEach(projKey => {
-                    if (allData[projKey]) {
-                        if (parsed[projKey].engenharia) allData[projKey].engenharia = parsed[projKey].engenharia;
-                        if (parsed[projKey].estruturas) allData[projKey].estruturas = parsed[projKey].estruturas;
-                        if (parsed[projKey].progresso) allData[projKey].progresso = parsed[projKey].progresso;
-                    }
-                });
-            } catch(e) { console.log('Erro ao carregar dados salvos'); }
+                loadFromLocal();
+            })
+            .catch(() => loadFromLocal());
+        
+        function loadFromLocal() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    Object.keys(parsed).forEach(projKey => {
+                        if (allData[projKey]) {
+                            if (parsed[projKey].engenharia) allData[projKey].engenharia = parsed[projKey].engenharia;
+                            if (parsed[projKey].estruturas) allData[projKey].estruturas = parsed[projKey].estruturas;
+                            if (parsed[projKey].progresso) allData[projKey].progresso = parsed[projKey].progresso;
+                        }
+                    });
+                } catch(e) { console.log('Erro ao carregar dados salvos'); }
+            }
+            renderAll();
         }
     }
 
     function saveData() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+        // Sincronizar com servidor
+        fetch('/sync/construtivo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(allData)
+        }).catch(e => console.log('Erro ao sincronizar:', e));
     }
 
     // ===== FUNÇÕES DE EDIÇÃO =====
