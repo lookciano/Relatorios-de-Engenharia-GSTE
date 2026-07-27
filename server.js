@@ -35,7 +35,7 @@ const pool = mysql.createPool({
   user: process.env.TIDB_USER || 'gy5yMNEFDCFn2XC.root',
   password: process.env.TIDB_PASSWORD || 'kdqT4cU2noPfVuZ5',
   database: process.env.TIDB_DATABASE || 'gste_relatorios',
-  ssl: {},
+  ssl: { ca: process.env.TIDB_CA || '/etc/ssl/cert.pem' },
   waitForConnections: true,
   connectionLimit: 10,
 });
