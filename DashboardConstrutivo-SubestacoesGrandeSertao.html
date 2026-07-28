@@ -22,9 +22,33 @@
             color: white;
             padding: 2rem 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
+
         .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
         .header p { color: #d1fae5; font-size: 0.95rem; }
+
+        .home-button {
+            position: absolute;
+            top: 2rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
 
         .container { max-width: 100%; padding: 2rem 1.5rem; }
 
@@ -335,6 +359,7 @@
 </head>
 <body>
     <div class="header">
+        <a href="index.html" class="home-button">🏠 Home</a>
         <h1>Dashboard Construtivo - Subestações</h1>
         <p>Controle da Parte Construtiva - GS1, GS2, GS3 & TAESA</p>
     </div>
