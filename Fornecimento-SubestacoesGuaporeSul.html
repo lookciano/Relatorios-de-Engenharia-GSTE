@@ -420,10 +420,20 @@
                 if (serverData && Object.keys(serverData).length > 0) {
                     Object.keys(serverData).forEach(project => {
                         if (allData[project]) {
+                            let serverEquip;
                             if (serverData[project] && serverData[project].equipment) {
-                                allData[project].equipment = serverData[project].equipment;
+                                serverEquip = serverData[project].equipment;
                             } else {
-                                allData[project].equipment = serverData[project];
+                                serverEquip = serverData[project];
+                            }
+                            // MERGE: only update existing equipment, don't replace the whole array
+                            if (Array.isArray(serverEquip)) {
+                                serverEquip.forEach(srvItem => {
+                                    const existing = allData[project].equipment.find(e => e.id === srvItem.id);
+                                    if (existing) {
+                                        existing.suppliers = srvItem.suppliers;
+                                    }
+                                });
                             }
                         }
                     });
@@ -436,13 +446,29 @@
             .catch(() => loadFromLocal());
         
         function loadFromLocal() {
-            const saved = localStorage.getItem('guapore-sul-fornecimento-data');
+            const saved = localStorage.getItem(STORAGE_KEY);
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
                     Object.keys(parsed).forEach(project => {
                         if (allData[project]) {
-                            allData[project].equipment = parsed[project];
+                            // MERGE: only update existing equipment, don't replace the whole array
+                            const savedEquip = parsed[project];
+                            if (Array.isArray(savedEquip)) {
+                                savedEquip.forEach(savedItem => {
+                                    const existing = allData[project].equipment.find(e => e.id === savedItem.id);
+                                    if (existing) {
+                                        existing.suppliers = savedItem.suppliers;
+                                    }
+                                });
+                            } else if (savedEquip && savedEquip.equipment) {
+                                savedEquip.equipment.forEach(savedItem => {
+                                    const existing = allData[project].equipment.find(e => e.id === savedItem.id);
+                                    if (existing) {
+                                        existing.suppliers = savedItem.suppliers;
+                                    }
+                                });
+                            }
                         }
                     });
                 } catch(e) { console.log('Erro ao carregar dados salvos'); }
