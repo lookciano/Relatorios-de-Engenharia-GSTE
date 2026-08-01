@@ -815,7 +815,7 @@
     let editValue = '';
 
     // ===== LOCAL STORAGE =====
-    const STORAGE_KEY = 'construtivo-dashboard-gs1-data';
+    const STORAGE_KEY = 'construtivo-dashboard-gs1-data-v2';
 
     function loadSavedData() {
         // Tenta carregar do servidor primeiro
@@ -826,9 +826,18 @@
                 if (serverData && Object.keys(serverData).length > 0) {
                     Object.keys(serverData).forEach(projKey => {
                         if (allData[projKey]) {
-                            if (serverData[projKey].engenharia) allData[projKey].engenharia = serverData[projKey].engenharia;
-                            if (serverData[projKey].estruturas) allData[projKey].estruturas = serverData[projKey].estruturas;
-                            if (serverData[projKey].progresso) allData[projKey].progresso = serverData[projKey].progresso;
+                            // MERGE: only update existing items by id, preserve new items/icons
+                            ['engenharia', 'estruturas', 'progresso'].forEach(section => {
+                                if (serverData[projKey][section] && allData[projKey][section]) {
+                                    serverData[projKey][section].forEach(srvItem => {
+                                        const existing = allData[projKey][section].find(e => e.id === srvItem.id);
+                                        if (existing) {
+                                            existing.suppliers = srvItem.suppliers;
+                                            if (srvItem.percentage !== undefined) existing.percentage = srvItem.percentage;
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                     renderAll();
@@ -845,9 +854,18 @@
                     const parsed = JSON.parse(saved);
                     Object.keys(parsed).forEach(projKey => {
                         if (allData[projKey]) {
-                            if (parsed[projKey].engenharia) allData[projKey].engenharia = parsed[projKey].engenharia;
-                            if (parsed[projKey].estruturas) allData[projKey].estruturas = parsed[projKey].estruturas;
-                            if (parsed[projKey].progresso) allData[projKey].progresso = parsed[projKey].progresso;
+                            // MERGE: only update existing items by id, preserve new items/icons
+                            ['engenharia', 'estruturas', 'progresso'].forEach(section => {
+                                if (parsed[projKey][section] && allData[projKey][section]) {
+                                    parsed[projKey][section].forEach(savedItem => {
+                                        const existing = allData[projKey][section].find(e => e.id === savedItem.id);
+                                        if (existing) {
+                                            existing.suppliers = savedItem.suppliers;
+                                            if (savedItem.percentage !== undefined) existing.percentage = savedItem.percentage;
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 } catch(e) { console.log('Erro ao carregar dados salvos'); }
@@ -1160,6 +1178,7 @@
     loadSavedData();
     renderAll();
     
+
 </script>
 </body>
 </html>
