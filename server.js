@@ -270,6 +270,116 @@ app.post('/sync/construtivo', async (req, res) => {
   }
 });
 
+// ===== API de Sincronização Guaporé Sul (TiDB Cloud) =====
+
+// GET /sync/gps-fornecimento - retorna dados salvos do TiDB Cloud
+app.get('/sync/gps-fornecimento', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "gps-fornecimento"');
+    if (rows.length > 0) {
+      return res.json(JSON.parse(rows[0].state_json));
+    }
+    res.json(null);
+  } catch (e) {
+    console.error('❌ Erro ao ler gps-fornecimento do TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /sync/gps-fornecimento - salva dados e sincroniza no TiDB Cloud em tempo real
+app.post('/sync/gps-fornecimento', async (req, res) => {
+  try {
+    // Carrega o estado mestre atual do DB para fazer merge robusto
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "gps-fornecimento"');
+    let masterState = {};
+    if (rows.length > 0) {
+      try {
+        masterState = JSON.parse(rows[0].state_json);
+      } catch (err) {
+        masterState = {};
+      }
+    }
+
+    const clientData = req.body;
+
+    // Merge inteligente
+    for (const [projKey, projVal] of Object.entries(clientData)) {
+      if (!masterState[projKey]) {
+        masterState[projKey] = {
+          suppliers: [],
+          mainBodyId: projKey + 'MainBody',
+          auxBodyId: projKey + 'AuxBody',
+          equipment: []
+        };
+      }
+
+      if (Array.isArray(projVal)) {
+        masterState[projKey].equipment = projVal;
+      } else if (projVal && typeof projVal === 'object') {
+        if (projVal.equipment) {
+          masterState[projKey].equipment = projVal.equipment;
+        }
+        if (projVal.suppliers) masterState[projKey].suppliers = projVal.suppliers;
+        if (projVal.mainBodyId) masterState[projKey].mainBodyId = projVal.mainBodyId;
+        if (projVal.auxBodyId) masterState[projKey].auxBodyId = projVal.auxBodyId;
+      }
+    }
+
+    const stateJson = JSON.stringify(masterState);
+
+    await pool.query(
+      'INSERT INTO sync_states (key_name, state_json) VALUES ("gps-fornecimento", ?) ON DUPLICATE KEY UPDATE state_json = ?',
+      [stateJson, stateJson]
+    );
+
+    // Sincronização relacional em background
+    syncFornecimentoToRelational(stateJson).catch(err => {
+      console.error('Erro em sync relacional background (gps):', err.message);
+    });
+
+    res.json({ ok: true, timestamp: Date.now() });
+  } catch (e) {
+    console.error('❌ Erro ao salvar gps-fornecimento no TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /sync/gps-construtivo - retorna dados salvos do TiDB Cloud
+app.get('/sync/gps-construtivo', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "gps-construtivo"');
+    if (rows.length > 0) {
+      return res.json(JSON.parse(rows[0].state_json));
+    }
+    res.json(null);
+  } catch (e) {
+    console.error('❌ Erro ao ler gps-construtivo do TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /sync/gps-construtivo - salva dados e sincroniza no TiDB Cloud em tempo real
+app.post('/sync/gps-construtivo', async (req, res) => {
+  try {
+    const stateJson = JSON.stringify(req.body);
+
+    await pool.query(
+      'INSERT INTO sync_states (key_name, state_json) VALUES ("gps-construtivo", ?) ON DUPLICATE KEY UPDATE state_json = ?',
+      [stateJson, stateJson]
+    );
+
+    // Sincronização nas tabelas relacionais em background
+    syncConstrutivoToRelational(stateJson).catch(err => {
+      console.error('Erro em sync relacional construtivo background (gps):', err.message);
+    });
+
+    res.json({ ok: true, timestamp: Date.now() });
+  } catch (e) {
+    console.error('❌ Erro ao salvar gps-construtivo no TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // ===== Servir arquivos estáticos =====
 app.use((req, res, next) => {
   if (req.path.startsWith('/sync/')) return next();

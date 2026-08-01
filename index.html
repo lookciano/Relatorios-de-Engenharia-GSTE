@@ -100,12 +100,40 @@
             background: linear-gradient(to right, #e5e7eb, transparent);
         }
 
+        /* Project Group */
+        .project-group {
+            margin-bottom: 3rem;
+        }
+        .project-group-header {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .project-group-header .group-icon {
+            font-size: 2rem;
+        }
+        .project-group-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .project-group-header p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
         /* Dashboard Cards */
         .dashboards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
         .dashboard-card {
             background: white;
@@ -126,6 +154,8 @@
         }
         .dashboard-card .card-header.f1 { background: linear-gradient(135deg, #0d9488, #0f766e); }
         .dashboard-card .card-header.f2 { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .dashboard-card .card-header.f3 { background: linear-gradient(135deg, #0d9488, #0f766e); }
+        .dashboard-card .card-header.f4 { background: linear-gradient(135deg, #0891b2, #0e7490); }
         .dashboard-card .card-header .icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -241,7 +271,7 @@
     <div class="header">
         <div class="header-content">
             <h1>📊 Relatórios de Engenharia GSTE</h1>
-            <p>Monitoramento de fornecimento e progresso construtivo das subestações do Grande Sertão</p>
+            <p>Monitoramento de fornecimento e progresso construtivo das subestações</p>
             <div class="badge">
                 🟢 Online &nbsp;·&nbsp; Dados via <span>TiDB Cloud</span> &nbsp;·&nbsp; Última atualização: <span id="lastUpdate">—</span>
             </div>
@@ -258,36 +288,86 @@
             <!-- Stats -->
             <div class="stats-grid" id="statsGrid"></div>
 
-            <!-- Dashboards -->
-            <h2 class="section-title">📋 Dashboards</h2>
-            <div class="dashboards-grid">
-                <a href="Fornecimento-SubestacoesGrandeSertao.html" class="dashboard-card">
-                    <div class="card-header f1">
-                        <span class="icon">📦</span>
-                        <h2>Dashboard de Fornecimento</h2>
-                        <p>Status de fornecimento de equipamentos por subestação</p>
+            <!-- ===== GRANDE SERTÃO ===== -->
+            <div class="project-group">
+                <div class="project-group-header">
+                    <span class="group-icon">⚡</span>
+                    <div>
+                        <h2>Projetos Grande Sertão</h2>
+                        <p>Subestações: Ceará-Mirim, João Pessoa, Pau Ferro, Messias, Garanhuns, Jussiape, Ibicoara, Ourolândia e outras</p>
                     </div>
-                    <div class="card-body">
-                        <div class="info-row"><span class="label">Equipamentos</span><span class="value" id="totalEquipamentos">—</span></div>
-                        <div class="info-row"><span class="label">Registros</span><span class="value" id="totalRegistros">—</span></div>
-                        <div class="info-row"><span class="label">Última atualização</span><span class="value" id="fornUpdate">—</span></div>
-                    </div>
-                    <div class="card-footer">Abrir Dashboard →</div>
-                </a>
+                </div>
+                <h2 class="section-title">📋 Dashboards Grande Sertão</h2>
+                <div class="dashboards-grid">
+                    <a href="Fornecimento-SubestacoesGrandeSertao.html" class="dashboard-card">
+                        <div class="card-header f1">
+                            <span class="icon">📦</span>
+                            <h2>Dashboard de Fornecimento</h2>
+                            <p>Status de fornecimento de equipamentos por subestação</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row"><span class="label">Equipamentos</span><span class="value" id="totalEquipamentos">—</span></div>
+                            <div class="info-row"><span class="label">Registros</span><span class="value" id="totalRegistros">—</span></div>
+                            <div class="info-row"><span class="label">Última atualização</span><span class="value" id="fornUpdate">—</span></div>
+                        </div>
+                        <div class="card-footer">Abrir Dashboard →</div>
+                    </a>
 
-                <a href="DashboardConstrutivo-SubestacoesGrandeSertao.html" class="dashboard-card">
-                    <div class="card-header f2">
-                        <span class="icon">🏗️</span>
-                        <h2>Dashboard Construtivo</h2>
-                        <p>Progresso das obras e construção civil das subestações</p>
+                    <a href="DashboardConstrutivo-SubestacoesGrandeSertao.html" class="dashboard-card">
+                        <div class="card-header f2">
+                            <span class="icon">🏗️</span>
+                            <h2>Dashboard Construtivo</h2>
+                            <p>Progresso das obras e construção civil das subestações</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row"><span class="label">Projetos</span><span class="value" id="totalProjetos">—</span></div>
+                            <div class="info-row"><span class="label">Status ativos</span><span class="value" id="totalStatus">—</span></div>
+                            <div class="info-row"><span class="label">Fonte</span><span class="value">TiDB Cloud</span></div>
+                        </div>
+                        <div class="card-footer">Abrir Dashboard →</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===== GUAPORÉ SUL ===== -->
+            <div class="project-group">
+                <div class="project-group-header">
+                    <span class="group-icon">🔌</span>
+                    <div>
+                        <h2>Projeto Guaporé Sul</h2>
+                        <p>Subestações: Vilhena 3, Jauru e Vilhena</p>
                     </div>
-                    <div class="card-body">
-                        <div class="info-row"><span class="label">Projetos</span><span class="value" id="totalProjetos">—</span></div>
-                        <div class="info-row"><span class="label">Status ativos</span><span class="value" id="totalStatus">—</span></div>
-                        <div class="info-row"><span class="label">Fonte</span><span class="value">TiDB Cloud</span></div>
-                    </div>
-                    <div class="card-footer">Abrir Dashboard →</div>
-                </a>
+                </div>
+                <h2 class="section-title">📋 Dashboards Guaporé Sul</h2>
+                <div class="dashboards-grid">
+                    <a href="Fornecimento-SubestacoesGuaporeSul.html" class="dashboard-card">
+                        <div class="card-header f3">
+                            <span class="icon">📦</span>
+                            <h2>Dashboard de Fornecimento</h2>
+                            <p>Status de fornecimento de equipamentos por subestação</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row"><span class="label">Equipamentos</span><span class="value">12</span></div>
+                            <div class="info-row"><span class="label">Subestações</span><span class="value">3</span></div>
+                            <div class="info-row"><span class="label">Fonte</span><span class="value">TiDB Cloud</span></div>
+                        </div>
+                        <div class="card-footer">Abrir Dashboard →</div>
+                    </a>
+
+                    <a href="DashboardConstrutivo-SubestacoesGuaporeSul.html" class="dashboard-card">
+                        <div class="card-header f4">
+                            <span class="icon">🏗️</span>
+                            <h2>Dashboard Construtivo</h2>
+                            <p>Progresso das obras e construção civil das subestações</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row"><span class="label">Projeto</span><span class="value">Guaporé Sul</span></div>
+                            <div class="info-row"><span class="label">Subestações</span><span class="value">3</span></div>
+                            <div class="info-row"><span class="label">Fonte</span><span class="value">TiDB Cloud</span></div>
+                        </div>
+                        <div class="card-footer">Abrir Dashboard →</div>
+                    </a>
+                </div>
             </div>
 
             <!-- Projetos Table -->
