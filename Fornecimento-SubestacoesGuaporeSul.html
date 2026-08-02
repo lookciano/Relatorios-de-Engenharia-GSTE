@@ -298,41 +298,56 @@
     function getStatusColor(status) {
         const s = status.toLowerCase().trim();
         
-        // VERDE - Concluído/Entregue
-        if (s.includes('entregue') || s.includes('entrega parcial') || s.includes('em entrega') ||
-            s.includes('estoque') || s.includes('taf conclu') || s.includes('taf concluído') ||
-            s.includes('fabricado') || s === 'entregues' || s === 'aprovado') {
-            return '#10b981';
+        // CINZA - N/A / Não iniciado
+        if (s === 'n/a' || s === 'na' || s === 'não iniciado' || s === 'nao iniciado') {
+            return '#9ca3af';
         }
         
-        // AZUL - Em andamento
-        if (s.includes('fabricação') || s.includes('fabricacao') || s.includes('análise') || 
-            s.includes('analise') || s.includes('aprovação') || s.includes('aprovacao') ||
-            s.includes('convocado') || s.includes('transporte') || s.includes('elaboração') ||
-            s.includes('elaboracao') || s.includes('andamento') || s.includes('iniciado') ||
-            s.includes('execução') || s.includes('execucao') || s.includes('prime')) {
+        // LARANJA ESCURO - Cotação / Minuta / Assinatura
+        if (s.includes('cotação') || s.includes('cotacao') || 
+            s.includes('minuta') || s.includes('assinatura')) {
+            return '#c2410c';
+        }
+        
+        // AZUL - Contrato assinado / Desenhos / Revisão / Análise
+        if (s.includes('contrato assinado') || s.includes('desenho') || 
+            s.includes('revisão') || s.includes('revisao') || 
+            s.includes('análise') || s.includes('analise')) {
             return '#3b82f6';
         }
         
-        // CINZA - Não iniciado / N/A
+        // VERDE - Aprovado / Fabricação / TAF / Estoque / Transporte / Entregue
+        if (s.includes('aprovado') || s.includes('fabricação') || s.includes('fabricacao') ||
+            s.includes('taf') || s.includes('estoque') || s.includes('transporte') ||
+            s.includes('entregue') || s.includes('em entrega')) {
+            return '#10b981';
+        }
+        
+        // CINZA - fallback
         return '#9ca3af';
     }
 
     const statusOptions = [
-        'Entregue',
-        'Entregue parcial',
-        'Em estoque',
-        'TAF Concluído',
-        'Em fabricação',
-        'Em análise',
-        'Em aprovação',
-        'TAF Convocado',
-        'Em transporte',
-        'Elaboração',
-        'TAF em andamento',
-        'TAF iniciado',
-        'Não iniciado',
         'N/A',
+        'Não iniciado',
+        'Cotação',
+        'Fase de minuta',
+        'Fase de assinatura',
+        'Contrato assinado',
+        'Elaboração de desenhos',
+        'Revisão',
+        'Análise',
+        'Aprovado com comentários',
+        'Aprovado parcial',
+        'Aprovado',
+        'Fabricação',
+        'TAF convocado',
+        'TAF iniciado',
+        'TAF concluído',
+        'Em estoque',
+        'Em transporte',
+        'Entregue parcial',
+        'Entregue',
     ]
 
     let editingCell = null;
@@ -382,39 +397,39 @@
                     'Vilhena': { date: 'Setembro/26', status: 'Entregue parcial', delivered: 16, total: 22 }
                 }},
                 { id: 'gps1-paineis', name: 'Painéis de SPCS/Telecom', icon: 'paineis', category: 'principal', suppliers: {
-                    'Vilhena 3': { date: 'Julho/26', status: 'TAF Concluído', delivered: 0, total: 0 },
-                    'Jauru': { date: 'Julho/26', status: 'TAF Concluído', delivered: 0, total: 0 },
-                    'Vilhena': { date: 'Julho/26', status: 'TAF Concluído', delivered: 0, total: 0 }
+                    'Vilhena 3': { date: 'Julho/26', status: 'TAF concluído', delivered: 0, total: 0 },
+                    'Jauru': { date: 'Julho/26', status: 'TAF concluído', delivered: 0, total: 0 },
+                    'Vilhena': { date: 'Julho/26', status: 'TAF concluído', delivered: 0, total: 0 }
                 }},
                 { id: 'gps1-qdca', name: 'QDCA/QDCC', icon: 'qdca', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Julho/26', status: 'TAF Concluído', delivered: 4, total: 4 },
-                    'Jauru': { date: 'Julho/26', status: 'TAF Concluído', delivered: 4, total: 4 },
-                    'Vilhena': { date: 'Julho/26', status: 'TAF Concluído', delivered: 4, total: 4 }
+                    'Vilhena 3': { date: 'Julho/26', status: 'TAF concluído', delivered: 4, total: 4 },
+                    'Jauru': { date: 'Julho/26', status: 'TAF concluído', delivered: 4, total: 4 },
+                    'Vilhena': { date: 'Julho/26', status: 'TAF concluído', delivered: 4, total: 4 }
                 }},
                 { id: 'gps1-motor', name: 'Grupo Motor Gerador', icon: 'motor', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Agosto/26', status: 'Em fabricação', delivered: 1, total: 1 },
-                    'Jauru': { date: 'Agosto/26', status: 'Em fabricação', delivered: 1, total: 1 },
-                    'Vilhena': { date: 'Agosto/26', status: 'Em fabricação', delivered: 1, total: 1 }
+                    'Vilhena 3': { date: 'Agosto/26', status: 'Fabricação', delivered: 1, total: 1 },
+                    'Jauru': { date: 'Agosto/26', status: 'Fabricação', delivered: 1, total: 1 },
+                    'Vilhena': { date: 'Agosto/26', status: 'Fabricação', delivered: 1, total: 1 }
                 }},
                 { id: 'gps1-tsa', name: 'TSA', icon: 'tsa', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Agosto/26', status: 'Elaboração', delivered: 1, total: 1 },
-                    'Jauru': { date: 'Agosto/26', status: 'Elaboração', delivered: 1, total: 1 },
-                    'Vilhena': { date: 'Agosto/26', status: 'Elaboração', delivered: 1, total: 1 }
+                    'Vilhena 3': { date: 'Agosto/26', status: 'Elaboração de desenhos', delivered: 1, total: 1 },
+                    'Jauru': { date: 'Agosto/26', status: 'Elaboração de desenhos', delivered: 1, total: 1 },
+                    'Vilhena': { date: 'Agosto/26', status: 'Elaboração de desenhos', delivered: 1, total: 1 }
                 }},
                 { id: 'gps1-retificador', name: 'Retificador e Baterias', icon: 'retificador', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Agosto/26', status: 'Em fabricação', delivered: 4, total: 4 },
-                    'Jauru': { date: 'Agosto/26', status: 'Em fabricação', delivered: 4, total: 4 },
-                    'Vilhena': { date: 'Agosto/26', status: 'Em fabricação', delivered: 4, total: 4 }
+                    'Vilhena 3': { date: 'Agosto/26', status: 'Fabricação', delivered: 4, total: 4 },
+                    'Jauru': { date: 'Agosto/26', status: 'Fabricação', delivered: 4, total: 4 },
+                    'Vilhena': { date: 'Agosto/26', status: 'Fabricação', delivered: 4, total: 4 }
                 }},
                 { id: 'gps1-cubiculo', name: 'Cubículo', icon: 'cubiculo', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Setembro/26', status: 'Em fabricação', delivered: 1, total: 1 },
-                    'Jauru': { date: 'Setembro/26', status: 'Em fabricação', delivered: 1, total: 1 },
-                    'Vilhena': { date: 'Setembro/26', status: 'Em fabricação', delivered: 1, total: 1 }
+                    'Vilhena 3': { date: 'Setembro/26', status: 'Fabricação', delivered: 1, total: 1 },
+                    'Jauru': { date: 'Setembro/26', status: 'Fabricação', delivered: 1, total: 1 },
+                    'Vilhena': { date: 'Setembro/26', status: 'Fabricação', delivered: 1, total: 1 }
                 }},
                 { id: 'gps1-caixa', name: 'Caixa de Junção', icon: 'caixa', category: 'auxiliar', suppliers: {
-                    'Vilhena 3': { date: 'Julho/26', status: 'Elaboração', delivered: 18, total: 18 },
-                    'Jauru': { date: 'Julho/26', status: 'Elaboração', delivered: 18, total: 18 },
-                    'Vilhena': { date: 'Julho/26', status: 'Elaboração', delivered: 18, total: 18 }
+                    'Vilhena 3': { date: 'Julho/26', status: 'Elaboração de desenhos', delivered: 18, total: 18 },
+                    'Jauru': { date: 'Julho/26', status: 'Elaboração de desenhos', delivered: 18, total: 18 },
+                    'Vilhena': { date: 'Julho/26', status: 'Elaboração de desenhos', delivered: 18, total: 18 }
                 }},
             ]
         }
@@ -450,6 +465,7 @@
                             }
                         }
                     });
+                    migrateOldStatuses();
                     renderAll();
                     return;
                 }
@@ -486,8 +502,39 @@
                     });
                 } catch(e) { console.log('Erro ao carregar dados salvos'); }
             }
+            migrateOldStatuses();
             renderAll();
         }
+    }
+
+    // Migrar status antigos para a nova nomenclatura
+    function migrateOldStatuses() {
+        const migration = {
+            'Em fabricação': 'Fabricação',
+            'Em análise': 'Análise',
+            'Em aprovação': 'Revisão',
+            'Elaboração': 'Elaboração de desenhos',
+            'TAF Concluído': 'TAF concluído',
+            'TAF Convocado': 'TAF convocado',
+            'TAF em andamento': 'TAF iniciado',
+        };
+        let changed = false;
+        Object.keys(allData).forEach(project => {
+            if (allData[project] && allData[project].equipment) {
+                allData[project].equipment.forEach(eq => {
+                    if (eq.suppliers) {
+                        Object.keys(eq.suppliers).forEach(sup => {
+                            const s = eq.suppliers[sup];
+                            if (s && s.status && migration[s.status]) {
+                                s.status = migration[s.status];
+                                changed = true;
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        if (changed) saveData();
     }
 
     // Salvar dados no localStorage e no servidor
@@ -661,7 +708,12 @@ function handleSave() {
 
     function handleKeyDown(e) {
         if (e.key === 'Enter') { e.preventDefault(); handleSave(); }
-        else if (e.key === 'Escape') { e.preventDefault(); handleCancel(); }
+        if (e.key === 'Escape') { cancelEdit(); }
+    }
+
+    function handleStatusChange(selectEl) {
+        const newColor = getStatusColor(selectEl.value);
+        selectEl.style.backgroundColor = newColor;
     }
 
     function renderTable(projectKey, category, bodyId, suppliersArray) {
@@ -719,9 +771,11 @@ function handleSave() {
 
                 // Status
                 if (isEditingStatus) {
-                    cellHTML += '<select class="select-field" data-edit-active onchange="handleSave()" onkeydown="handleKeyDown(event)" onblur="handleSave()">';
+                    const currentStatusColor = getStatusColor(editValue);
+                    cellHTML += `<select class="select-field" style="background-color: ${currentStatusColor}; color: white; font-weight: 500;" data-edit-active onchange="handleStatusChange(this)" onkeydown="handleKeyDown(event)" onblur="handleSave()">`;
                     statusOptions.forEach(status => {
-                        cellHTML += `<option value="${status}" ${editValue === status ? 'selected' : ''}>${status}</option>`;
+                        const optColor = getStatusColor(status);
+                        cellHTML += `<option value="${status}" style="background-color: ${optColor}; color: white; padding: 4px 8px;" ${editValue === status ? 'selected' : ''}>${status}</option>`;
                     });
                     cellHTML += '</select>';
                 } else {
