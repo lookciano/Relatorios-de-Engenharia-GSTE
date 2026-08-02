@@ -219,6 +219,14 @@
             .equipment-icon img { width: 48px; height: 48px; }
             .supplier-cell { min-width: 120px; }
         }
+    
+        .section-update {
+            float: right;
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+        }
     </style>
 </head>
 <body>
@@ -232,20 +240,10 @@
             <h2>Projeto Guaporé Sul</h2>
         </div>
 
-        <div class="section-title">Equipamentos Principais</div>
-        <div class="table-wrapper">
-            <table><thead><tr>
-                <th>Equipamento</th>
-                <th><span class="badge">Vilhena 3</span></th><th><span class="badge">Jauru</span></th><th><span class="badge">Vilhena</span></th>
-            </tr></thead><tbody id="gps1MainBody"></tbody></table>
+        <div class="section-title">Equipamentos Principais<span class="section-update" id="ts-gps1MainBody"></span></div></tbody></table>
         </div>
 
-        <div class="section-title">Equipamentos de Serviço Auxiliar</div>
-        <div class="table-wrapper">
-            <table><thead><tr>
-                <th>Equipamento</th>
-                <th><span class="badge">Vilhena 3</span></th><th><span class="badge">Jauru</span></th><th><span class="badge">Vilhena</span></th>
-            </tr></thead><tbody id="gps1AuxBody"></tbody></table>
+        <div class="section-title">Equipamentos de Serviço Auxiliar<span class="section-update" id="ts-gps1AuxBody"></span></div></tbody></table>
         </div>
 
         <div class="legend">
@@ -531,7 +529,32 @@
         editValue = e.target.value;
     }
 
-    function handleSave() {
+    
+    function updateSectionTimestamp(bodyId) {
+        const now = new Date();
+        const ts = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+        const tsEl = document.getElementById('ts-' + bodyId);
+        if (tsEl) tsEl.textContent = 'Atualizado: ' + ts;
+        // Save to localStorage
+        const tsKey = 'guapore-sul-fornecimento-data-v2-timestamps';
+        let allTs = {};
+        try { allTs = JSON.parse(localStorage.getItem(tsKey) || '{}'); } catch(e) {}
+        allTs[bodyId] = ts;
+        localStorage.setItem(tsKey, JSON.stringify(allTs));
+    }
+    
+    function loadSectionTimestamps() {
+        const tsKey = 'guapore-sul-fornecimento-data-v2-timestamps';
+        try {
+            const allTs = JSON.parse(localStorage.getItem(tsKey) || '{}');
+            Object.keys(allTs).forEach(bodyId => {
+                const el = document.getElementById('ts-' + bodyId);
+                if (el) el.textContent = 'Atualizado: ' + allTs[bodyId];
+            });
+        } catch(e) {}
+    }
+    
+function handleSave() {
         if (!editingCell) return;
         
         const { equipmentId, supplier, field } = editingCell;
@@ -550,10 +573,22 @@
             supplierData[field] = editValue;
         }
         
+        // Determine which section was edited
+        const editedEquipment = findEquipment(equipmentId);
+        if (editedEquipment) {
+            for (const projKey of Object.keys(allData)) {
+                if (allData[projKey].equipment.find(e => e.id === equipmentId)) {
+                    const bodyId = editedEquipment.category === 'principal' ? allData[projKey].mainBodyId : allData[projKey].auxBodyId;
+                    updateSectionTimestamp(bodyId);
+                    break;
+                }
+            }
+        }
         editingCell = null;
         editValue = '';
         saveData();
         renderAll();
+        loadSectionTimestamps();
         showToast('Dados atualizados com sucesso');
     }
 
@@ -675,6 +710,8 @@
     // ===== INICIALIZAÇÃO =====
     loadSavedData();
     renderAll();
+    loadSectionTimestamps();
+
 
 </script>
 </body>

@@ -355,6 +355,14 @@
             .supplier-cell { min-width: 110px; }
             .progress-grid { flex-direction: column; align-items: center; }
         }
+    
+        .section-update {
+            float: right;
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+        }
     </style>
 </head>
 <body>
@@ -614,7 +622,31 @@ gps1: {
         editValue = e.target.value;
     }
 
-    function handleSave() {
+    
+    function updateSectionTimestamp(projKey, section) {
+        const now = new Date();
+        const ts = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+        const tsEl = document.getElementById('ts-' + projKey + '-' + section);
+        if (tsEl) tsEl.textContent = 'Atualizado: ' + ts;
+        const tsKey = 'construtivo-guapore-sul-data-timestamps';
+        let allTs = {};
+        try { allTs = JSON.parse(localStorage.getItem(tsKey) || '{}'); } catch(e) {}
+        allTs[projKey + '-' + section] = ts;
+        localStorage.setItem(tsKey, JSON.stringify(allTs));
+    }
+
+    function loadSectionTimestamps() {
+        const tsKey = 'construtivo-guapore-sul-data-timestamps';
+        try {
+            const allTs = JSON.parse(localStorage.getItem(tsKey) || '{}');
+            Object.keys(allTs).forEach(key => {
+                const el = document.getElementById('ts-' + key);
+                if (el) el.textContent = 'Atualizado: ' + allTs[key];
+            });
+        } catch(e) {}
+    }
+
+function handleSave() {
         if (!editingCell) return;
         
         const { itemId, supplier, field } = editingCell;
@@ -632,10 +664,23 @@ gps1: {
             item.suppliers[supplier][field] = editValue.replace(/\\n/g, '\n');
         }
         
+        // Determine which section was edited
+        for (const projKey of Object.keys(allData)) {
+            for (const section of ['engenharia', 'estruturas', 'progresso']) {
+                if (allData[projKey][section]) {
+                    const found = allData[projKey][section].find(item => item.id === (editingCell && editingCell.equipmentId));
+                    if (found) {
+                        updateSectionTimestamp(projKey, section);
+                        break;
+                    }
+                }
+            }
+        }
         editingCell = null;
         editValue = '';
         saveData();
         renderAll();
+        loadSectionTimestamps();
         showToast('Dados atualizados com sucesso');
     }
 
@@ -665,7 +710,7 @@ gps1: {
                 <p>${project.subtitle}</p>
             </div>
             
-            <div class="section-title">Engenharia e Projetos</div>
+            <div class="section-title">Engenharia e Projetos<span class="section-update" id="ts-${projKey}-engenharia"></span></div>
             <div class="table-wrapper">
                 <table>
                     <thead><tr>
@@ -686,7 +731,7 @@ gps1: {
                 </table>
             </div>
             
-            <div class="section-title">Estruturas Metálicas</div>
+            <div class="section-title">Estruturas Metálicas<span class="section-update" id="ts-${projKey}-estruturas"></span></div>
             <div class="table-wrapper">
                 <table>
                     <thead><tr>
@@ -707,7 +752,7 @@ gps1: {
                 </table>
             </div>
             
-            <div class="section-title">Progresso de Obra Civil - % Obra Liberada</div>
+            <div class="section-title">Progresso de Obra Civil - % Obra Liberada<span class="section-update" id="ts-${projKey}-progresso"></span></div>
             <div class="progress-section">
                 <div class="progress-grid">
         `;
@@ -861,6 +906,8 @@ gps1: {
     // ===== INICIALIZAÇÃO =====
     loadSavedData();
     renderAll();
+    setTimeout(loadSectionTimestamps, 500);
+
 
 
 </script>
