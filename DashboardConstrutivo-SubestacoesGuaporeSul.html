@@ -527,6 +527,7 @@ gps1: {
 // ===== ESTADO =====
     let editingCell = null;
     let editValue = '';
+    let editOriginalValue = ''; // valor original para detectar alteração real
 
     // ===== LOCAL STORAGE =====
     const STORAGE_KEY = 'construtivo-guapore-sul-data';
@@ -608,6 +609,7 @@ gps1: {
         } else if (field === 'sub1' || field === 'sub2') {
             editValue = item.suppliers[supplier][field] || '';
         }
+        editOriginalValue = editValue; // guarda valor original
         
         renderAll();
         
@@ -689,17 +691,47 @@ function handleSave() {
         const input = document.querySelector('[data-edit-active]');
         if (input) editValue = input.value;
         
+        // Verificar se houve alteração real
+        let newValueNormalized;
         if (field === 'percentage') {
+            newValueNormalized = String(Math.min(100, Math.max(0, parseInt(editValue) || 0)));
+            const originalNormalized = String(Math.min(100, Math.max(0, parseInt(editOriginalValue) || 0)));
+            if (newValueNormalized === originalNormalized) {
+                editingCell = null;
+                editValue = '';
+                editOriginalValue = '';
+                renderAll();
+                return; // Nenhuma alteração real
+            }
             item.percentage = Math.min(100, Math.max(0, parseInt(editValue) || 0));
         } else if (field === 'status') {
-            item.suppliers[supplier].status = editValue.replace(/\\n/g, '\n');
+            const newStatus = editValue.replace(/\\n/g, '\n');
+            const originalStatus = editOriginalValue.replace(/\\n/g, '\n');
+            if (newStatus === originalStatus) {
+                editingCell = null;
+                editValue = '';
+                editOriginalValue = '';
+                renderAll();
+                return; // Nenhuma alteração real
+            }
+            item.suppliers[supplier].status = newStatus;
         } else if (field === 'sub1' || field === 'sub2') {
-            item.suppliers[supplier][field] = editValue.replace(/\\n/g, '\n');
+            const newVal = editValue.replace(/\\n/g, '\n');
+            const origVal = editOriginalValue.replace(/\\n/g, '\n');
+            if (newVal === origVal) {
+                editingCell = null;
+                editValue = '';
+                editOriginalValue = '';
+                renderAll();
+                return; // Nenhuma alteração real
+            }
+            item.suppliers[supplier][field] = newVal;
         }
         
         const editedId = editingCell ? editingCell.itemId : null;
         editingCell = null;
         editValue = '';
+        editOriginalValue = '';
         saveData();
         renderAll();
         // Update timestamp for the edited section

@@ -337,6 +337,7 @@
 
     let editingCell = null;
     let editValue = '';
+    let editOriginalValue = ''; // valor original para detectar alteração real
     const STORAGE_KEY = 'guapore-sul-fornecimento-data-v2';
 
     const allData = {
@@ -526,6 +527,7 @@
         if (!equipment) return;
         const supplierData = equipment.suppliers[supplier];
         editValue = String(supplierData[field]);
+        editOriginalValue = editValue; // guarda valor original
         renderAll();
         
         setTimeout(() => {
@@ -608,15 +610,33 @@ function handleSave() {
         const input = document.querySelector('[data-edit-active]');
         if (input) editValue = input.value;
         
+        // Verificar se houve alteração real
+        let newValue;
         if (field === 'delivered' || field === 'total') {
-            const newValue = parseInt(editValue) || 0;
-            supplierData[field] = newValue;
+            newValue = String(parseInt(editValue) || 0);
+            const originalNormalized = String(parseInt(editOriginalValue) || 0);
+            if (newValue === originalNormalized) {
+                editingCell = null;
+                editValue = '';
+                editOriginalValue = '';
+                renderAll();
+                return; // Nenhuma alteração real
+            }
+            supplierData[field] = parseInt(editValue) || 0;
         } else {
+            if (editValue === editOriginalValue) {
+                editingCell = null;
+                editValue = '';
+                editOriginalValue = '';
+                renderAll();
+                return; // Nenhuma alteração real
+            }
             supplierData[field] = editValue;
         }
         
         editingCell = null;
         editValue = '';
+        editOriginalValue = '';
         saveData();
         renderAll();
         // Update timestamp for the edited section
