@@ -380,6 +380,51 @@ app.post('/sync/gps-construtivo', async (req, res) => {
   }
 });
 
+// ===== API de Sincronização de Timestamps (TiDB Cloud) =====
+
+// GET /sync/timestamps - retorna todos os timestamps salvos
+app.get('/sync/timestamps', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "timestamps"');
+    if (rows.length > 0) {
+      return res.json(JSON.parse(rows[0].state_json));
+    }
+    res.json({});
+  } catch (e) {
+    console.error('❌ Erro ao ler timestamps do TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /sync/timestamps - salva timestamps (merge com existentes)
+app.post('/sync/timestamps', async (req, res) => {
+  try {
+    // Carrega estado atual
+    const [rows] = await pool.query('SELECT state_json FROM sync_states WHERE key_name = "timestamps"');
+    let masterTs = {};
+    if (rows.length > 0) {
+      try { masterTs = JSON.parse(rows[0].state_json); } catch (err) { masterTs = {}; }
+    }
+
+    // Merge: cliente envia { "ts-gs1MainBody": "02/08/2026 14:35", ... }
+    const clientTs = req.body;
+    for (const [key, value] of Object.entries(clientTs)) {
+      masterTs[key] = value;
+    }
+
+    const stateJson = JSON.stringify(masterTs);
+    await pool.query(
+      'INSERT INTO sync_states (key_name, state_json) VALUES ("timestamps", ?) ON DUPLICATE KEY UPDATE state_json = ?',
+      [stateJson, stateJson]
+    );
+
+    res.json({ ok: true, timestamp: Date.now() });
+  } catch (e) {
+    console.error('❌ Erro ao salvar timestamps no TiDB:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // ===== Servir arquivos estáticos =====
 app.use((req, res, next) => {
   if (req.path.startsWith('/sync/')) return next();

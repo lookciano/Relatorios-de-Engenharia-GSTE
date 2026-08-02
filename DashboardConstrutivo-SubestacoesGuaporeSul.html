@@ -636,17 +636,47 @@ gps1: {
             let allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
             allTs[sectionId] = ts;
             localStorage.setItem('gste-timestamps', JSON.stringify(allTs));
+            // Sincronizar timestamp com o servidor
+            const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+            fetch(API_BASE + '/sync/timestamps', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(allTs)
+            }).catch(e => console.log('Erro ao sincronizar timestamp:', e));
         } catch(e) {}
     }
 
     function loadSectionTimestamps() {
-        try {
-            const allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
-            Object.keys(allTs).forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.textContent = 'Atualizado: ' + allTs[id];
-            });
-        } catch(e) {}
+        // Tenta carregar do servidor primeiro, fallback para localStorage
+        const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+        fetch(API_BASE + '/sync/timestamps?_=' + Date.now())
+            .then(r => r.json())
+            .then(serverTs => {
+                if (serverTs && Object.keys(serverTs).length > 0) {
+                    // Merge com localStorage (servidor vence)
+                    let localTs = {};
+                    try { localTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}'); } catch(e) {}
+                    const merged = { ...localTs, ...serverTs };
+                    localStorage.setItem('gste-timestamps', JSON.stringify(merged));
+                    Object.keys(merged).forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = 'Atualizado: ' + merged[id];
+                    });
+                    return;
+                }
+                loadTimestampsFromLocal();
+            })
+            .catch(() => loadTimestampsFromLocal());
+
+        function loadTimestampsFromLocal() {
+            try {
+                const allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
+                Object.keys(allTs).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = 'Atualizado: ' + allTs[id];
+                });
+            } catch(e) {}
+        }
     }
 
 function handleSave() {
