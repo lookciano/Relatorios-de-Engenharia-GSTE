@@ -356,8 +356,12 @@
             .progress-grid { flex-direction: column; align-items: center; }
         }
     
+        .section-title { position: relative; }
         .section-update {
-            float: right;
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 0.7rem;
             font-weight: 400;
             opacity: 0.65;
@@ -628,17 +632,16 @@ gps1: {
         const ts = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
         const tsEl = document.getElementById(sectionId);
         if (tsEl) tsEl.textContent = 'Atualizado: ' + ts;
-        const tsKey = 'construtivo-guapore-sul-data-timestamps';
-        let allTs = {};
-        try { allTs = JSON.parse(localStorage.getItem(tsKey) || '{}'); } catch(e) {}
-        allTs[sectionId] = ts;
-        localStorage.setItem(tsKey, JSON.stringify(allTs));
+        try {
+            let allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
+            allTs[sectionId] = ts;
+            localStorage.setItem('gste-timestamps', JSON.stringify(allTs));
+        } catch(e) {}
     }
 
     function loadSectionTimestamps() {
-        const tsKey = 'construtivo-guapore-sul-data-timestamps';
         try {
-            const allTs = JSON.parse(localStorage.getItem(tsKey) || '{}');
+            const allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
             Object.keys(allTs).forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = 'Atualizado: ' + allTs[id];
@@ -664,22 +667,22 @@ function handleSave() {
             item.suppliers[supplier][field] = editValue.replace(/\\n/g, '\n');
         }
         
-        // Update section timestamp
-        if (editingCell) {
+        const editedId = editingCell ? editingCell.equipmentId : null;
+        editingCell = null;
+        editValue = '';
+        saveData();
+        renderAll();
+        // Update timestamp for the edited section
+        if (editedId) {
             for (const pk of Object.keys(allData)) {
                 for (const sec of ['engenharia', 'estruturas', 'progresso']) {
-                    if (allData[pk][sec] && allData[pk][sec].find(item => item.id === editingCell.equipmentId)) {
+                    if (allData[pk][sec] && allData[pk][sec].find(item => item.id === editedId)) {
                         updateSectionTimestamp('ts-' + pk + '-' + sec);
                         break;
                     }
                 }
             }
         }
-        editingCell = null;
-        editValue = '';
-        saveData();
-        renderAll();
-        setTimeout(loadSectionTimestamps, 100);
         showToast('Dados atualizados com sucesso');
     }
 
@@ -906,6 +909,7 @@ function handleSave() {
     loadSavedData();
     renderAll();
     setTimeout(loadSectionTimestamps, 500);
+
 
 
 
