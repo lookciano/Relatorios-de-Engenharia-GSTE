@@ -667,7 +667,7 @@ function handleSave() {
             item.suppliers[supplier][field] = editValue.replace(/\\n/g, '\n');
         }
         
-        const editedId = editingCell ? editingCell.equipmentId : null;
+        const editedId = editingCell ? editingCell.itemId : null;
         editingCell = null;
         editValue = '';
         saveData();
@@ -682,6 +682,8 @@ function handleSave() {
                     }
                 }
             }
+        } else {
+            console.log('Timestamp: editedId is null or not found');
         }
         showToast('Dados atualizados com sucesso');
     }
@@ -909,6 +911,7 @@ function handleSave() {
     loadSavedData();
     renderAll();
     setTimeout(loadSectionTimestamps, 500);
+
 
 
 
