@@ -18,35 +18,13 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #0d5e5a 100%);
+            background: linear-gradient(to right, #0d9488, #0f766e);
             color: white;
-            padding: 3rem 2rem;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 50%;
-        }
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: 10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 50%;
-        }
-        .header-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-        .header p { color: #d1fae5; font-size: 1.1rem; opacity: 0.9; }
+        .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+        .header p { color: #d1fae5; font-size: 0.95rem; }
         .header .badge {
             display: inline-block;
             background: rgba(255,255,255,0.15);
@@ -54,12 +32,11 @@
             border-radius: 999px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-top: 1rem;
-            backdrop-filter: blur(10px);
+            margin-top: 0.5rem;
         }
         .header .badge span { color: #a7f3d0; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .container { max-width: 100%; padding: 2rem 1.5rem; }
 
         /* Stats Cards */
         .stats-grid {
@@ -85,19 +62,13 @@
 
         /* Section Title */
         .section-title {
-            font-size: 1.5rem;
+            background: linear-gradient(to right, #0d9488, #0f766e);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(to right, #e5e7eb, transparent);
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin-top: 2rem;
         }
 
         /* Project Group */
@@ -137,16 +108,16 @@
         }
         .dashboard-card {
             background: white;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: inherit;
             display: block;
         }
-        .dashboard-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+        .dashboard-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); }
         .dashboard-card .card-header {
             padding: 2rem;
             color: white;
@@ -168,7 +139,7 @@
             display: flex;
             justify-content: space-between;
             padding: 0.5rem 0;
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 1px solid #e5e7eb;
             font-size: 0.9rem;
         }
         .dashboard-card .card-body .info-row:last-child { border-bottom: none; }
@@ -177,7 +148,7 @@
         .dashboard-card .card-footer {
             padding: 1rem 1.5rem;
             background: #f9fafb;
-            border-top: 1px solid #f3f4f6;
+            border-top: 1px solid #e5e7eb;
             text-align: center;
             font-weight: 600;
             font-size: 0.9rem;
@@ -189,30 +160,28 @@
         /* Project Table */
         .project-table-wrapper {
             background: white;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
             margin-bottom: 3rem;
         }
         .project-table-wrapper table { width: 100%; border-collapse: collapse; }
-        .project-table-wrapper thead { background: #f9fafb; border-bottom: 2px solid #e5e7eb; }
+        .project-table-wrapper thead { background-color: #f9fafb; border-bottom: 2px solid #e5e7eb; }
         .project-table-wrapper th {
-            padding: 1rem 1.5rem;
+            padding: 1rem;
             text-align: left;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #6b7280;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 0.95rem;
         }
         .project-table-wrapper td {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
         }
         .project-table-wrapper tr:last-child td { border-bottom: none; }
-        .project-table-wrapper tr:hover td { background: #f9fafb; }
-        .project-table-wrapper .project-name { font-weight: 700; color: #1f2937; }
+        .project-table-wrapper tr:hover td { background-color: #f9fafb; }
+        .project-table-wrapper .project-name { font-weight: 700; color: #111827; }
         .project-table-wrapper .project-code { font-size: 0.8rem; color: #6b7280; }
 
         .status-pill {
@@ -246,6 +215,18 @@
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Footer */
+        .footer-info {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-info h3 { font-weight: 700; color: #111827; margin-bottom: 1rem; }
+        .footer-info ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-info li { font-size: 0.9rem; color: #374151; }
+        .footer-info strong { color: #0d9488; font-weight: 600; }
+        
         .footer {
             text-align: center;
             padding: 2rem;
@@ -259,11 +240,13 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header { padding: 2rem 1.5rem; }
-            .header h1 { font-size: 1.8rem; }
-            .container { padding: 1.5rem; }
+            .header { padding: 1.5rem 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1.5rem 1rem; }
             .dashboards-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-table-wrapper th { padding: 0.75rem 0.5rem; font-size: 0.8rem; }
+            .project-table-wrapper td { padding: 0.75rem 0.5rem; }
         }
     </style>
 </head>
@@ -294,7 +277,7 @@
                     <span class="group-icon">⚡</span>
                     <div>
                         <h2>Projetos Grande Sertão</h2>
-                        <p>Subestações: Ceará-Mirim, João Pessoa, Pau Ferro, Messias, Garanhuns, Jussiape, Ibicoara, Ourolândia e outras</p>
+                        <p>Subestações: Ceará-Mirim, João Pessoa, Pau Ferro, Messias, Garanhuns, Pilões, Jussiape, Ibicoara, Ourolândia e outras</p>
                     </div>
                 </div>
                 <h2 class="section-title">📋 Dashboards Grande Sertão</h2>
