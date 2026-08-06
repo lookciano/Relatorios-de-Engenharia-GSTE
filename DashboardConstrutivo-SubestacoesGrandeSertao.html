@@ -49,6 +49,17 @@
             border-radius: 0.5rem 0.5rem 0 0;
             margin-top: 2rem;
         }
+        .section-title { position: relative; }
+        .section-update {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.65;
+            color: #d1fae5;
+        }
 
         .table-wrapper {
             background: white;
@@ -997,6 +1008,55 @@
         editValue = e.target.value;
     }
 
+    function updateSectionTimestamp(sectionId) {
+        const now = new Date();
+        const ts = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+        const tsEl = document.getElementById(sectionId);
+        if (tsEl) { tsEl.textContent = 'Atualizado: ' + ts; console.log('TS updated:', sectionId, ts); } else { console.log('TS element NOT found:', sectionId); }
+        try {
+            let allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
+            allTs[sectionId] = ts;
+            localStorage.setItem('gste-timestamps', JSON.stringify(allTs));
+            const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+            fetch(API_BASE + '/sync/timestamps', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(allTs)
+            }).catch(e => console.log('Erro ao sincronizar timestamp:', e));
+        } catch(e) {}
+    }
+
+    function loadSectionTimestamps() {
+        const API_BASE = window.location.hostname.includes('onrender.com') || window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? '' : 'https://relatorios-de-engenharia-gste.onrender.com';
+        fetch(API_BASE + '/sync/timestamps?_=' + Date.now())
+            .then(r => r.json())
+            .then(serverTs => {
+                if (serverTs && Object.keys(serverTs).length > 0) {
+                    let localTs = {};
+                    try { localTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}'); } catch(e) {}
+                    const merged = { ...localTs, ...serverTs };
+                    localStorage.setItem('gste-timestamps', JSON.stringify(merged));
+                    Object.keys(merged).forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = 'Atualizado: ' + merged[id];
+                    });
+                    return;
+                }
+                loadTimestampsFromLocal();
+            })
+            .catch(() => loadTimestampsFromLocal());
+
+        function loadTimestampsFromLocal() {
+            try {
+                const allTs = JSON.parse(localStorage.getItem('gste-timestamps') || '{}');
+                Object.keys(allTs).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = 'Atualizado: ' + allTs[id];
+                });
+            } catch(e) {}
+        }
+    }
+
     function handleSave() {
         if (!editingCell) return;
         
@@ -1019,6 +1079,17 @@
         editValue = '';
         saveData();
         renderAll();
+        // Update timestamp for the edited section
+        if (itemId) {
+            for (const pk of Object.keys(allData)) {
+                for (const sec of ['engenharia', 'estruturas', 'progresso']) {
+                    if (allData[pk][sec] && allData[pk][sec].find(it => it.id === itemId)) {
+                        updateSectionTimestamp('ts-' + pk + '-' + sec);
+                        break;
+                    }
+                }
+            }
+        }
         showToast('Dados atualizados com sucesso');
     }
 
@@ -1048,7 +1119,7 @@
                 <p>${project.subtitle}</p>
             </div>
             
-            <div class="section-title">Engenharia e Projetos</div>
+            <div class="section-title">Engenharia e Projetos<span class="section-update" id="ts-${projKey}-engenharia">—</span></div>
             <div class="table-wrapper">
                 <table>
                     <thead><tr>
@@ -1069,7 +1140,7 @@
                 </table>
             </div>
             
-            <div class="section-title">Estruturas Metálicas</div>
+            <div class="section-title">Estruturas Metálicas<span class="section-update" id="ts-${projKey}-estruturas">—</span></div>
             <div class="table-wrapper">
                 <table>
                     <thead><tr>
@@ -1090,7 +1161,7 @@
                 </table>
             </div>
             
-            <div class="section-title">Progresso de Obra Civil - % Obra Liberada</div>
+            <div class="section-title">Progresso de Obra Civil - % Obra Liberada<span class="section-update" id="ts-${projKey}-progresso">—</span></div>
             <div class="progress-section">
                 <div class="progress-grid">
         `;
@@ -1244,6 +1315,7 @@
     // ===== INICIALIZAÇÃO =====
     loadSavedData();
     renderAll();
+    setTimeout(loadSectionTimestamps, 500);
     
     // ===== HOME BUTTON =====
     const homeButton = document.createElement('button');
